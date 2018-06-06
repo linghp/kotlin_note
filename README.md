@@ -2,7 +2,7 @@ kotlin_note
 ===
 kotlin的一些操作符号
 ---
-1. 展开运算符'*'   
+### 1. 展开运算符'*'   
 首先看可变参数 vararg的使用：
 ```kotlin
 fun kebiancanshu() {
@@ -19,4 +19,22 @@ fun testVararg(args: Array<String>) {
     val list = listOf("test", * args)
     println(list)
 }
+```
+其他
+-----
+### 1.@Parcelize  
+使用parcelabe时，要实现一些模板方法，使用这个就可以不用写了,自动生成  
+怎样使用：  
+gradle
+```gradle
+apply plugin: 'kotlin-android-extensions'  
+androidExtensions {
+  experimental = true
+}
+```
+```kotlin
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class User(val firstName: String, val lastName: String, val age: Int): Parcelable
 ```
